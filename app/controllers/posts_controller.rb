@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @comments = @post.comments.recent.includes(:user)
+    @comment = @post.comments.new
   end
 
   # GET /posts/new
