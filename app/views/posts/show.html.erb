@@ -18,3 +18,23 @@
   <dd><%= @post.body %></dd>
 
 </dl>
+
+<h3>Comments</h3>
+<%= content_tag_for :div, @comments, class: 'panel panel-default' do |comment| %>
+<div class="panel-heading">
+  <h3 class="panel-title">
+    <%= comment.title %>
+  </h3>
+</div>
+<%= simple_format comment.comment %>
+
+<div class="panel-footer">
+  Posted <%= time_ago_in_words comment.updated_at %>
+  <% if comment.user %>
+  by <%= comment.user.email %>
+  <% end %>
+</div>
+
+<% end %>
+
+<
