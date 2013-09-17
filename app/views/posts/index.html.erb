@@ -18,6 +18,9 @@
 
 <div class="panel-footer">
   Created <%= time_ago_in_words post.created_at %> ago, last updated
-  <%= time_ago_in_words post.updated_at %> ago
+  <%= time_ago_in_words post.updated_at %> ago.
+  <% if post.user %>
+  Author: <%= post.user.email %>
+  <% end %>
 </div>
 <% end %>
